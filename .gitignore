@@ -1,0 +1,19 @@
+# IDE
+.vscode
+.idea/
+
+# Virtualenv
+local/
+venv/
+/venv
+*.env
+*.log
+
+# DBT cache
+target/
+dbt_packages/
+logs/
+plugins/
+output/
+models/
+profiles.yml
