@@ -5,6 +5,13 @@ Adds a task [Snowflake Task](https://docs.snowflake.com/en/user-guide/tasks-intr
 ## Installation Instructions
 Follow the installation instructs found [here](https://docs.getdbt.com/docs/build/packages#how-do-i-add-a-package-to-my-project) to add DBT Snowflake Aux to your project. 
 
+Include the following in either dependencies.yml or packages.yml
+```yaml
+packages:
+  - git: "https://github.com/isaiahgm/dbt-snowflake-aux.git"
+    revision: v0.1.0
+```
+
 ## How to Use
 The primary feature of this package adds the "task_table" materialization option. This package also adds a number of macros to simplify deploying and executing tasks.
 ### Task Table Materialization
