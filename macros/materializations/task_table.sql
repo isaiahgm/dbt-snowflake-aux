@@ -17,7 +17,7 @@
   {% set task_schema = task_config.schema or target_relation.schema %}
   {% set task_database = task_config.database or target_relation.database %}
   {% set task_relation = api.Relation.create(database=task_database, schema=task_schema, identifier=task_identifier) %}
-  {{ snowflake__pause_task(task_relation) }}
+  {{ pause_task(task_relation) }}
 
   -- Determine if this task is a root or child task
   {% if task_config.schedule and task_config.after %}
@@ -34,7 +34,7 @@
     {% set root_task = task_relation %}
   {% else %}
     {% set root_task = find_root_task(task_config.after) %}
-    {{ snowflake__pause_task(root_task) }}
+    {{ pause_task(root_task) }}
   {% endif %}
 
   {{ run_hooks(pre_hooks) }}
@@ -47,8 +47,8 @@
   {% endif %}
 
   {% call statement('main', language=language) -%}
-      {{ snowflake__create_task(task_relation, task_config) }}
-      {{ snowflake__create_table_as(false, target_relation, compiled_code, 'sql') }}
+      {{ create_task(task_relation, task_config) }}
+      {{ create_table_as(false, target_relation, compiled_code, 'sql') }}
   {%- endcall %}
 
   {{ run_hooks(post_hooks) }}

@@ -1,4 +1,4 @@
-{% macro snowflake__create_task(relation, settings) -%}
+{% macro create_task(relation, settings) -%}
 CREATE OR REPLACE TASK {{ relation }}
   WAREHOUSE = {{ settings.warehouse or 'ANALYTICAL_WH' }}
 {%- if settings.schedule %}

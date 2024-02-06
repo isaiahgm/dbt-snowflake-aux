@@ -1,4 +1,4 @@
-{% macro snowflake__resume_task(relation) %}
+{% macro resume_task(relation) %}
     {% set query %}
         ALTER TASK IF EXISTS {{ relation }} RESUME
     {% endset %}

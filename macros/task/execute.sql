@@ -1,4 +1,4 @@
-{% macro snowflake__execute_task(relation) %}
+{% macro execute_task(relation) %}
     {% set query %}
         EXECUTE TASK {{ relation }};
     {% endset %}
