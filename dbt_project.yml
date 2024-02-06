@@ -11,11 +11,6 @@ profile: 'snowflake'
 # found in the "models/" directory. You probably won't need to change these!
 macro-paths: ["macros"]
 
-on-run-end:
-  - "{{ activate_root_task('INTERNAL.BI.TEST_TASK_2A') }}"
-  - "{{ activate_root_task('INTERNAL.BI.TEST_TASK_1', 'INTERNAL.BI.TEST_TASK_3') }}"
-  - "{{ execute_root_task('INTERNAL.BI.TEST_TASK_2A', 'INTERNAL.BI.TEST_TASK_1', 'INTERNAL.BI.TEST_TASK_3')}}"
-
 clean-targets:         # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
