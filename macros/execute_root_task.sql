@@ -4,7 +4,7 @@
   {{ log("========== Execute Tasks ===========", info=True) }}
   {% for x in varargs -%}
     {% do log(x, info=True) %}
-    {{ execute_task(x) }}
+    {{ dbt_snowflake_aux.execute_task(x) }}
   {% endfor %}
   {{ log("(Check Snowflake for DAG run status)", info=True) }}
   {{ log("====================================", info=True) }}
