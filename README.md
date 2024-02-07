@@ -9,7 +9,7 @@ Include the following in either dependencies.yml or packages.yml
 ```yaml
 packages:
   - git: "https://github.com/isaiahgm/dbt-snowflake-aux.git"
-    revision: v0.1.0
+    revision: v0.1.2
 ```
 
 ## How to Use
@@ -70,7 +70,7 @@ To simplify resuming tasks after creation / updates, use the `activate_root_task
 
 ```yaml
 on-run-end:
-  - "{{ activate_root_task('DATABASE.SCHEMA.TASK_1'[, 'DATABASE.SCHEMA.TASK_2']) }}"
+  - "{{ dbt_snowflake_aux.activate_root_task('DATABASE.SCHEMA.TASK_1'[, 'DATABASE.SCHEMA.TASK_2']) }}"
 ```
 This macro accepts an arbitrary number of arguments, so it can activate multiple task trees at once. 
 You only need to provide the root task name and this macro will resume the entire DAG.
